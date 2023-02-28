@@ -1,0 +1,590 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* 
+    These rules apply to actual HTML elements with no labelling!
+    So: they style the tags directly
+  */
+  
+  html {
+    background-color:#7EE2D1;
+    font-size: 17px;
+    min-width: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  
+    /* these are specific to different browsers */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  header{display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px 10%;}
+  
+  .nav_links li{display:inline-block;padding:10px, 50px}
+  
+  .nav_links li a{transition:all 0.3s easy 0s}
+  
+  .nav_links li a:hover{color:#ADD8E6}
+  
+  
+  
+  body {
+    margin: 0;
+    padding: 0;
+  
+    font-family: â€˜Segoe UIâ€™, Candara, â€˜Bitstream Vera Sansâ€™, â€˜DejaVu Sansâ€™, â€˜Bitsream Vera Sansâ€™, â€˜Trebuchet MSâ€™, Verdana, â€˜Verdana Refâ€™, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: rgb(239, 239, 239);
+    color: rgb(74, 74, 74);
+  }
+  
+  
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  h2 {
+    margin:0;
+    padding:0;
+    padding-bottom:1.5rem;
+  }
+  
+  form {
+    accent-color: hsla(120, 100%, 50%, 0.482);
+  }
+  
+  /*
+    - These styles use 'class names'
+    - You can apply them by using the 'class' attribute on your HTML
+    - like this: <div class="wrapper">
+    - note that the period vanishes there!
+  */
+  .barra-redes { border-radius: 20%; padding: 30px;
+    width: 25px; height:25px;}
+  
+  .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    flex: 1;
+  }
+  
+  
+  .container {
+    margin: 0 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    flex:1;
+  }
+  
+  
+  .header h1 {
+    display: block;
+    /* this will push other blocks out of the way */
+  
+    /* colors */
+    color:  #FAFDFD;
+    
+  
+    /* shapes */
+    border-radius: 5px;
+    font-size: 1.5rem;
+    padding: 1.25rem;
+    margin:0; /* removing the margin on h1 tags means the header pins to the top */
+  
+    /* box-shadows are fancy */
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+  }
+  
+  
+  img{
+    max-width: 200%;
+    height: 30vh;
+    border-radius: 5px;
+    padding:0 1%;
+    width: 250px; align-items:center; 
+    position: center; 
+  display: block;
+    margin-left: 40%;
+    margin-right: 30%; border-radius: 50%;}
+  
+  /*
+    Rules can be combined on a block to apply the 'cascade' in order
+    So you can use two classnames in a single class attribute
+    like: <div class="box section">
+  
+    Rules may combine in unexpected ways - remember that the LAST thing written in this file will have "priority"
+    And will be what displays in your client
+  */
+  #map {
+    display: none;
+    width: 400px;
+    height: 380px;
+    border: 2px dashed rgb(99, 99, 99);
+    margin-bottom: 1rem;
+  }
+  
+  
+  .box {
+    border: 2px dashed;
+    border-radius: 6px;
+    color:#F4FAF9;
+  
+    width: fit-content;
+    height:fit-content;
+    padding: 1.5rem;
+    margin: 0 auto;
+  }
+  
+  .left_section {
+    flex: 0 1 auto;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .right_section {
+    display: flex;
+    flex-direction: column;
+    flex: 1 2 auto;
+    margin: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 
+    Set some rules for smaller screens
+  */
+  
+  @media only screen and (max-width: 736px){
+      .container {
+        flex-direction: column;
+      }
+      .left_section {
+        flex: 3 1 auto;
+      }
+      .right_section {
+        flex: 1 1 auto;
+        justify-content: flex-start;
+      }
+      .box {
+        width: 100%;
+        width: -moz-available;          /* WebKit-based browsers will ignore this. */
+        width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+        width: fill-available;
+        align-items: flex-start;
+      }
+  }
+  
+  /*
+    This block is actually dependent on the "container" block having a flex set on it
+    and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
+    That serves to cram the footer to the bottom of the page.
+  */
+  
+  .footer {
+    border: 2px dashed;
+    border-radius: 4px;
+  
+    flex-shrink: 0;
+    padding: 1rem;
+  
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .footer a {
+    text-decoration: underline;
+  }
+  
+  /*
+    This is an example of a 'pseudoclass'
+    In this instance, it says what to do if a mouse hovers over a link
+    This is pretty desktop-specific, since there's no hover function on touchscreens
+  */
+  .footer a:hover {
+    /* Hue, saturation, luminosity, alpha */
+    background-color: hsla(0, 0%, 90%, 0.15);
+    /* red, green, blue, alpha */
+    text-decoration: none;
+  }
+  
+  .subtitle {
+    color: rgba(0, 0, 0, 0.8);
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+  
+  /*
+  Form Styles
+  */
+    form input {
+      /* This is a hack to make sure our boxes line up with one another nicely */
+      width: 50%;
+      width: -moz-available;          /* WebKit-based browsers will ignore this. */
+      width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+      width: fill-available;
+  
+      /* here we are setting white space correctly */
+      margin-bottom: 1rem;
+      height: 2rem;
+      border-radius: 4px;
+    }
+  
+    form label {
+      width: 50%;
+      width: -moz-available;          /* WebKit-based browsers will ignore this. */
+      width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+      width: fill-available;
+      align-items: flex-start;
+  
+      display: block; /* this turns the label text into a box we can set margins on */
+      margin-bottom: 0.5rem;
+    }
+  
+  
+  
+  /* Deploy this with images as direct "children" and the images should pop into shape */
+  .grid {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+    width: 550px;
+    height: 350px;
+    margin: 0 auto;
+  }
+  
+  .grid img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  
+  /* Carousel */
+  
+  div.carousel {
+    max-width: 430px;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3 auto;
+    margin-bottom: 1rem;
+    color:#FAFDFD
+  }
+  
+  .carousel .slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* .carousel_item, */
+  .hidden {
+    display: none;
+  }
+  
+  .visible {
+    display: block;
+  }
+  
+  .carousel_item imgc {
+  
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 50px;justify-content:space-evenly
+  }
+    /* 
+      Setting width, rather than max-width or min-width,
+      means annoying pop-ins won't happen
+      but it also means you need to format your images to be compatible
+      or they will stretch weird
+  
+      try a tall one and see what happens
+     */
+    width: 150px; 
+  }
+  
+  
+  .header{height: 30vh;
+  width:100%;
+  padding: 0 3%;
+  background:#F9F9F2 ;
+  position: relative;}
+  
+  .prev:focus,
+  .next:focus {
+    margin: 5;
+    border: 2px solid rgba(0, 139, 139, 0.8);
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(243, 142, 53, 0.815);
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    color:#F4FAF9;
+  }/******************************************************************************
+  START Glitch hello-app default styles
+  
+  The styles in this section do some minimal CSS resets, set default fonts and 
+  colors, and handle the layout for our footer and "Remix on Glitch" button. If
+  you're new to CSS they may seem a little complicated, but you can scroll down
+  to this section's matching END comment to see page-specific styles.
+  ******************************************************************************/
+  
+  
+  /* 
+    The style rules specify elements by type and by attributes such as class and ID
+    Each section indicates an element or elements, then lists the style properties to apply
+    See if you can cross-reference the rules in this file with the elements in index.html
+  */
+  
+  /* Our default values set as CSS variables */
+  :root {
+    --color-bg: #7EE2D1;
+    --color-text-main: ##1d1f21;
+    --color-primary: #FFFF00;
+    --wrapper-height: 87vh;
+    --image-max-width: 300px;
+    --image-margin: 3rem;
+    --font-family: "HK Grotesk";
+    --font-family-header: "HK Grotesk";
+  }
+  
+  /* Basic page style resets */
+  * {
+    box-sizing: border-box;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Import fonts */
+  @font-face {
+    font-family: HK Grotesk;
+    src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
+      format("opentype");
+  }
+  @font-face {
+    font-family: HK Grotesk;
+    font-weight: bold;
+    src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
+      format("opentype");
+  }
+  
+  /* Our remix on glitch button */
+  .btn--remix {
+    font-family: HK Grotesk;
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    line-height: 1rem;
+    font-weight: 500;
+    height: 2.75rem;
+    align-items: center;
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000;
+    white-space: nowrap;
+    margin-left: auto;
+  }
+  .btn--remix img {
+    margin-right: 0.5rem;
+  }
+  .btn--remix:hover {
+    background-color: #5F8575;
+  }
+  
+  /* Navigation grid */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem auto 0;
+    padding: 1rem 0 0.75rem 0;
+    width: 100%;
+    flex-wrap: wrap;
+    border-top: 4px solid #FAD5A5;
+  }
+  
+  .footer a:not(.btn--remix):link,
+  a:not(.btn--remix):visited {
+    font-family: HK Grotesk;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #36454F;
+    text-decoration: none;
+    border-style: none;
+  }
+  .footer a:hover {
+    background: var(--color-primary);
+  }
+  
+  .footer .links {
+    padding: 0.5rem 1rem 1.5rem;
+    white-space: nowrap;
+  }
+  
+  .divider {
+    padding: 0 1rem;
+  }
+  /******************************************************************************
+  END Glitch hello-app default styles
+  ******************************************************************************/
+  
+  body {
+    font-family: HK Grotesk;
+    background-color: var(--color-bg);
+  }
+  
+  /* Page structure */
+  
+  
+  /* Very light scaling for our illustration */
+  .title {
+    color: #1d1f21;
+    font-family: HK Grotesk;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 105%;
+    margin: 0;
+  }
+  
+  /* Very light scaling for our illustration */
+  .illustration {
+    max-width: 100%;
+    max-height: var(--image-max-width);
+    margin-top: var(--image-margin);
+  }
+  
+  /* Instructions */
+  .instructions {
+    margin: 1rem auto 0;
+  }
+  
+  /* Button - Add it from the README instructions */
+  button,
+  input {
+    font-family: inherit;
+    font-size: 100%;
+    background:#E5E4E2;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    transition: 500ms;
+    color:#F4FAF9
+  }
+  
+  /* Subheading */
+  h2 {
+  ;
+    color: white;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    
+  }
+    
+    }
+  /* Interactive image */
+  .illustration:active {
+    transform: translateY(5px);
+  }
+  
+  /* Button dip
+  - Toggling this class on and off will move it down and up again
+  - The button transition property above determines the speed of the translate (500ms)
+  */
+  .dipped {
+    transform: translateY(5px);
+  }
+     
+      footer {
+      text-align: center;
+      background-color: #683262;
+      font-size: medium;
+      color: rgb(194, 191, 201);
+      height: 5.5rem;
+      bottom: 0;
+      width: 100%;
+      position: relative;
+  }
+  
+  #banner {
+    background-image: url("https://cdn.glitch.global/45c8a9ff-241f-4c54-bda1-fd29161d2199/_Pink%20and%20Beige%20Web%20Projects%20Computer%20Logo.png?v=1675904108353");
+    background-size: cover;
+    background-position: bottom center;
+    height: 700px;
+    width: 100%;
+  }
+  .share {
+    border: 1px solid LightGrey;
+    padding: 40px 0px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  share a {
+    background: red;
+    border: 1px solid red;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    padding: 14px;
+    text-decoration: none;
+    margin: 10px;
+  }
+  actions {
+    text-align: center;
+    margin-top: 50px;
+    margin-left:50px;
+     margin-right:50px
+  }
+  .actions a {
+    background-color: #9DD1F1;
+    border-radius: 5px;
+    color: #004E89;
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    display: inline-block;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  li,a,button{font-family: 'Yantramanav', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+  color:#3A9C89}
+  
